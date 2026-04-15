@@ -44,7 +44,7 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const API_KEY = "80fa84b1f700a68df9398130";
+    const API_KEY = "3078994f6d89a13a321da858";
     const BASE_URL = "https://seekstreaming.com/api/v1";
 
     const tmdb_id = searchParams.get("tmdbid")?.trim();
@@ -218,7 +218,7 @@ export async function GET(req: NextRequest) {
     }
 
     const embedUrl = noAds
-      ? `https://master42-rm.yilogag600-048.workers.dev/${videoData.id}`
+      ? `https://ciscocdn-24.yilogag600-048.workers.dev/{videoData.id}`
       : `https://${playerDomain}/#${videoData.id}`;
 
     const extractedTitle = extractTitle(
