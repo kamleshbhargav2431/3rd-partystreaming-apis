@@ -48,8 +48,8 @@ export async function GET(req: NextRequest) {
     const BASE_URL = "https://seekstreaming.com/api/v1";
 
     const tmdb_id = searchParams.get("tmdbid")?.trim();
-    const season = searchParams.get("s")?.trim();
-    const episode = searchParams.get("e")?.trim();
+    const season = searchParams.get("s")?.trim() ?? null;
+    const episode = searchParams.get("e")?.trim() ?? null;
     const noAds = searchParams.get("noads") === "1";
 
     if (!tmdb_id || !/^\d+$/.test(tmdb_id)) {
