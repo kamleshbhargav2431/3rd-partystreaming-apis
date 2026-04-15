@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// RMPID (SeekStreaming) Embed API
+// RMPID (Rmpid) Embed API
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
@@ -9,10 +9,10 @@ export async function GET(req: NextRequest) {
   if (searchParams.toString() === "") {
     return NextResponse.json(
       {
-        api_name: "SeekStreaming Video API",
+        api_name: "Rmpid Video API",
         version: "3.5",
         description:
-          "This API finds videos on SeekStreaming (rpmshare.com) and returns data in a custom JSON format.",
+          "This API finds videos on Rmpid (rpmshare.com) and returns data in a custom JSON format.",
         endpoints: {
           tv_shows:
             "/api/rmpid?tmdbid={TMDB_ID}&s={SEASON}&e={EPISODE}",
@@ -23,7 +23,7 @@ export async function GET(req: NextRequest) {
           status: "success",
           data: [
             {
-              access_id: "(string) SeekStreaming video ID",
+              access_id: "(string) Rmpid video ID",
               tmdb_id: "(integer) The Movie Database ID",
               title: "(string) Extracted title from filename",
               audio: "(string) Audio information (default: 'unknown')",
@@ -44,12 +44,12 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const API_KEY = "3078994f6d89a13a321da858";
+    const API_KEY = "80fa84b1f700a68df9398130";
     const BASE_URL = "https://rpmshare.com/api/v1";
 
     const tmdb_id = searchParams.get("tmdbid")?.trim();
-    const season = searchParams.get("s")?.trim();
-    const episode = searchParams.get("e")?.trim();
+    const season = searchParams.get("s")?.trim() ?? null;
+    const episode = searchParams.get("e")?.trim() ?? null;
     const noAds = searchParams.get("noads") === "1";
 
     if (!tmdb_id || !/^\d+$/.test(tmdb_id)) {
@@ -218,7 +218,7 @@ export async function GET(req: NextRequest) {
     }
 
     const embedUrl = noAds
-      ? `https://ciscocdn-24.yilogag600-048.workers.dev/${videoData.id}`
+      ? `https://master42-rm.yilogag600-048.workers.dev/${videoData.id}`
       : `https://${playerDomain}/#${videoData.id}`;
 
     const extractedTitle = extractTitle(
