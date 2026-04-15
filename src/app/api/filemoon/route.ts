@@ -48,8 +48,8 @@ export async function GET(req: NextRequest) {
     const FILEMOON_API_URL = "https://api.byse.sx/file/list";
 
     const tmdb_id = searchParams.get("tmdbid")?.trim();
-    const season = searchParams.get("s")?.trim();
-    const episode = searchParams.get("e")?.trim();
+    const season = searchParams.get("s")?.trim() ?? null;
+    const episode = searchParams.get("e")?.trim() ?? null;
     const debug = searchParams.has("debug");
 
     if (!tmdb_id || !/^\d+$/.test(tmdb_id)) {
