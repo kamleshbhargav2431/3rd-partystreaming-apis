@@ -197,7 +197,7 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    const embedUrl = `https://playmoon.gipes64628.workers.dev/e/${fileData.file_code}`;
+    const embedUrl = `https://bysesayeveum.com/e/${fileData.file_code}`;
     const extractedTitle = extractTitle(
       fileData.title,
       tmdb_id,
