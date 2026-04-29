@@ -218,7 +218,7 @@ export async function GET(req: NextRequest) {
     }
 
     const embedUrl = noAds
-      ? `https://ciscocdn-24.yilogag600-048.workers.dev/{videoData.id}`
+      ? `https://ciscocdn-24.yilogag600-048.workers.dev/#${videoData.id}`
       : `https://${playerDomain}/#${videoData.id}`;
 
     const extractedTitle = extractTitle(
